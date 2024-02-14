@@ -30,11 +30,8 @@ public class DelegationSortedIntList implements IntegerList{
 
     @Override
     public boolean addAll(IntegerList list) {
-        boolean changed = false;
-        for (int i = 0; i < list.size(); i++) {
-            changed |= add(list.get(i)); // Use add to ensure counting and sorting
-        }
-        return changed;
+        totalAdded += list.size();
+        return myIntList.addAll(list); // already use add() inside, no need to add size again
     }
 
     @Override
